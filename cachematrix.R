@@ -33,7 +33,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
       ## Return a matrix that is the inverse of 'x'
-    x1<-makeCacheMatrix(x)
+  
+  if(is.null(x1)) {
+    x1<<-makeCacheMatrix(x)
+  }
     inverse <- x1$getinverse()
     
     if(!is.null(inverse)) {
@@ -50,4 +53,3 @@ cacheSolve <- function(x, ...) {
     inverse
 }
 
-makeCacheMatrix(z)
